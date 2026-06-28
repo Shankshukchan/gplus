@@ -18,6 +18,14 @@ const PORT = process.env.PORT || 3001;
 
 app.use(helmet());
 
+app.use((req, res, next) => {
+  const host = req.headers.host;
+  if (host === "gplussolution.com") {
+    return res.redirect(301, `https://www.gplussolution.com${req.url}`);
+  }
+  next();
+});
+
 const allowedOrigins = [
   "https://gplussolution.com",
   "https://www.gplussolution.com",
