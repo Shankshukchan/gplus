@@ -23,7 +23,7 @@ app.use(cors({
     const allowedOrigins = [
       "https://gplussolution.com",
       "https://www.gplussolution.com",
-      "https://gplussolutions-backedn.onrender.com",
+      "https://gplus-production.up.railway.app",
       "http://localhost:5173",
       "http://localhost:3000",
     ];
