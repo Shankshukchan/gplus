@@ -18,17 +18,18 @@ const PORT = process.env.PORT || 3001;
 
 app.use(helmet());
 
-const allowedOrigins = [
-  "https://gplussolution.com",
-  "https://www.gplussolution.com",
-  "http://localhost:5173",
-  "http://localhost:3000",
-];
-if (process.env.FRONTEND_URL) {
-  allowedOrigins.push(process.env.FRONTEND_URL);
-}
 app.use(cors({
   origin: (origin, cb) => {
+    const allowedOrigins = [
+      "https://gplussolution.com",
+      "https://www.gplussolution.com",
+      "https://gplussolutions-backedn.onrender.com",
+      "http://localhost:5173",
+      "http://localhost:3000",
+    ];
+    if (process.env.FRONTEND_URL) {
+      allowedOrigins.push(process.env.FRONTEND_URL);
+    }
     if (!origin || allowedOrigins.includes(origin)) {
       cb(null, true);
     } else {
